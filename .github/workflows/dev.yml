@@ -26,7 +26,8 @@ jobs:
 
       - shell: bash -l {0}
         run: |
-          conda install pandas scipy flake8 sphinx sphinx-bootstrap-theme myst-parser pandoc -y -q
+          conda install pandas scipy flake8 sphinx pandoc -y -q
+          pip install sphinx-bootstrap-theme myst-parser
           python -m pip install .
 
       - shell: bash -l {0}
