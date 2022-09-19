@@ -27,6 +27,7 @@ def class_imbalance(
     ascending=False,
     reference=True,
     always_bar=False,
+    barmode="stack",
     **kwargs,
 ):
     """Class imbalance visualization.
@@ -41,6 +42,7 @@ def class_imbalance(
         ascending (bool): if True, sort ascending, else descending
         reference (bool): add a reference line to better compare classes
         always_bar (bool): it True, for binary classification use bar instead of pie chart
+        barmode
         **kwargs: any Plotly kwargs for `px.pie` or `px.bar`
 
     Returns:
@@ -48,6 +50,7 @@ def class_imbalance(
     """
     if condition is None:
         condition = ""
+        for_text = ""
     else:
         for_text = " for "
     title = f"<b>Data set classes counts{for_text}{condition}</b>"
@@ -96,11 +99,11 @@ def class_imbalance(
             df = df.sort_values(by="count", ascending=ascending)
         if y2 is not None:
             # have to make two different bar() calls, else legend is wrong
-            fig = px.bar(df, x="count", y="class", color="class",
-                         pattern_shape="set", pattern_shape_map=pattern_shape_map,
-                         title=title, **kwargs)
+            fig = px.bar(df, x="count", y="class", color="class", barmode=barmode, pattern_shape="set",
+                         pattern_shape_map=pattern_shape_map, **kwargs)
         else:
-            fig = px.bar(df, x="count", y="class", color="class", title=title)
+            fig = px.bar(df, x="count", y="class", color="class", barmode=barmode, **kwargs)
+        title += f"<br><sub>{barmode=}</sub>"
         if reference:
             if y2 is not None:
                 fig.add_vline(
@@ -118,7 +121,11 @@ def class_imbalance(
                     x=df["count"].min(), line_width=1, line_dash="solid", line_color="black",
                     annotation_text=f"{condition} min()"
                 )
-
+    fig.update_layout(
+        dict(
+            title=title,
+        )
+    )
     return fig
 
 
@@ -247,7 +254,10 @@ def feature_importance(model, y, transpose=False, extended=False, **kwargs):
     Returns:
         Figure
     """
-    features = model.feature_names_in_
+    try:
+        features = model.feature_names_in_
+    except AttributeError:
+        features = None
     labels = get_labels(model, y)
     # depends on the scikit-learn model...
     try:
@@ -255,8 +265,14 @@ def feature_importance(model, y, transpose=False, extended=False, **kwargs):
     except AttributeError:
         importance = model.coef_
     df = pd.DataFrame(importance)
-    df.columns = features
-    df.index = labels
+    if features:
+        df.columns = features
+    try:
+        df.index = labels
+    except ValueError:
+        # binary class, single value
+        df.index = ["Positive"]
+
     if transpose:
         df = df.T
         legend_title = "class"
@@ -361,7 +377,7 @@ def precision_recall(model, y, y_probs, **kwargs):
 
         pr_auc = auc(recall, precision)
         p_score = average_precision_score(y, y_probs)
-        name = f"(AUC={pr_auc:.3f}, AP={p_score:.3f})"
+        name = f"AUC={pr_auc:.3f}, AP={p_score:.3f}"
         fig = px.line(
             x=recall,
             y=precision,
@@ -690,7 +706,7 @@ if __name__ == "__main__":
     random_state = 0
     np.random.seed(random_state)
 
-    binary = False
+    binary = True
     if binary:
         # Data
         X, y = make_classification(n_samples=500, random_state=random_state)
