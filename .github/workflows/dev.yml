@@ -1,6 +1,5 @@
 name: Classgraphic dev steps w/Miniconda
 on:
-  push:
   pull_request:
 
 jobs:

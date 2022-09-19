@@ -1,4 +1,9 @@
 # classgraphic
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![image](https://img.shields.io/pypi/v/hotelling.svg)](https://pypi.python.org/pypi/classgraphic) 
+![Dev](https://github.com/dionresearch/hotelling/actions/workflows/dev.yml/badge.svg)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dionresearch/classgraphic/HEAD?labpath=notebooks%2FClassGraphic_iris_demo.ipynb)
+
 Interactive classification diagnostic plots for scikit-learn.
 
 ![coin sorting machine](docs/source/sorter_patent.jpg)
@@ -97,7 +102,8 @@ feature_importance(model, y, transpose=True)
 
 This concludes the quickstart. There are many more visualizations and tables to explore.
 
-See the `notebooks` and `docs` folders on [github](https://github.com/dionresearch/classgraphic) for more information
+See the `notebooks` and `docs` folders on [github](https://github.com/dionresearch/classgraphic) and the documentation
+[web site](https://dionresearch.github.io/classgraphic/) for more information.
 
 # Requirements
 
