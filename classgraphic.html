@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>classgraphic package &#8212; ClassGraphic 0.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Using ClassGraphic" href="usage.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          ClassGraphic</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Using ClassGraphic</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">classgraphic package</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">classgraphic package</a><ul>
+<li><a class="reference internal" href="#module-classgraphic">Module contents</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li><a class="reference internal" href="#module-classgraphic.common">classgraphic.common</a></li>
+<li><a class="reference internal" href="#classgraphic-essential">classgraphic.essential</a></li>
+<li><a class="reference internal" href="#module-classgraphic.table">classgraphic.table</a></li>
+<li><a class="reference internal" href="#module-classgraphic.template">classgraphic.template</a></li>
+<li><a class="reference internal" href="#module-classgraphic.viz">classgraphic.viz</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="usage.html" title="Previous Chapter: Using ClassGraphic"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Using ClassGraphic</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/classgraphic.md.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="classgraphic-package">
+<h1>classgraphic package<a class="headerlink" href="#classgraphic-package" title="Permalink to this heading">¶</a></h1>
+<p>Interactive classification diagnostic plots for scikit-learn.</p>
+<p><img alt="coin sorting machine" src="_images/sorter_patent.jpg" /></p>
+<blockquote>
+<div><p>We classify things for the purpose of doing something to them. Any classification which does not assist manipulation is worse than useless. - Randolph S. Bourne,
+“Education and Living”, The Century Co (April 1917)</p>
+</div></blockquote>
+<section id="module-classgraphic">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-classgraphic" title="Permalink to this heading">¶</a></h2>
+<p>Top-level package for Classgraphic.</p>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+<section id="module-classgraphic.common">
+<span id="classgraphic-common"></span><h3>classgraphic.common<a class="headerlink" href="#module-classgraphic.common" title="Permalink to this heading">¶</a></h3>
+<p>common functions for table and viz.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.complementary_hex_color">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">complementary_hex_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rgb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.complementary_hex_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Complementary hexadecimal color of hex or rgb color.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rgb</strong> (<em>str</em>) – color to convert, formatted as either  <cite>#aabbcc</cite> or <cite>rgb(111,222,123)</cite></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>hex color (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.get_labels">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get labels from the model.</p>
+<p>We use a one hot strategy and ultimately get the resulting column names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – scikit-learn model</p></li>
+<li><p><strong>y</strong> (<em>Series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>as_str</strong> (<em>bool</em>) – default to list of string, else return one hot encoded dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(list(str) or dataframe)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.heatmap_colorscale">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">heatmap_colorscale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.heatmap_colorscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get heatmap colorscale from colorscale or template.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use to get heatmap colorscale from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list (colorscale)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.light_theme">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">light_theme</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colorscale_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.light_theme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate if a theme has a colorscale going from dark to light.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>colorscale_list</strong> (<em>list</em>) – list of rgb or hex colors.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.missing_matrix">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">missing_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.missing_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all missing (None or NaN) values.</p>
+<p>For each cell, returns True if value is missing, False if not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>DataFrame</em><em> or </em><em>2d array</em>) – data array to evaluate for missing values.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>array of bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.table_template">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">table_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.table_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get template to use with a table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>template</strong> (<em>str</em>) – template name. Template has to be valid. If not specified, will use plotly default template.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>template (str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.common.value_count">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.common.</span></span><span class="sig-name descname"><span class="pre">value_count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.common.value_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get class counts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>y_list</strong> (<em>DataFrame</em><em> or </em><em>array</em>) – usually the target data (y, y_test etc)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>counts (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="classgraphic-essential">
+<h3>classgraphic.essential<a class="headerlink" href="#classgraphic-essential" title="Permalink to this heading">¶</a></h3>
+<p>By starting a python script or a notebook with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">classgraphic.essential</span> <span class="pre">import</span> <span class="pre">*</span></code>,
+all the basic elements are loaded to start exploring data, build linear classification
+models and evaluate them.</p>
+<p>Specifically, essential exposes the following tables:</p>
+<ul class="simple">
+<li><p>class_imbalance_table</p></li>
+<li><p>classification_table</p></li>
+<li><p>confusion_matrix_table</p></li>
+<li><p>describe</p></li>
+<li><p>prediction_table</p></li>
+<li><p>table</p></li>
+</ul>
+<p>And the following charts:</p>
+<ul class="simple">
+<li><p>class_imbalance</p></li>
+<li><p>class_error</p></li>
+<li><p>det</p></li>
+<li><p>feature_importance</p></li>
+<li><p>missing</p></li>
+<li><p>precision_recall</p></li>
+<li><p>roc</p></li>
+<li><p>prediction_histogram</p></li>
+<li><p>threshold</p></li>
+</ul>
+<p>For templates:</p>
+<ul class="simple">
+<li><p>set_default_template</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">classgraphic.essential</span></code> also sets the default template to “dion”, which unifies
+the look of all visualizations and tables around a gradient of blue, with light background and
+lines.</p>
+<p>Finally, it also imports <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>, <code class="docutils literal notranslate"><span class="pre">plotly.express</span> <span class="pre">as</span> <span class="pre">px</span></code>, <code class="docutils literal notranslate"><span class="pre">plotly.graph_objects</span> <span class="pre">as</span> <span class="pre">go</span></code>
+and <code class="docutils literal notranslate"><span class="pre">make_classification</span></code>, <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> and <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p>
+</section>
+<section id="module-classgraphic.table">
+<span id="classgraphic-table"></span><h3>classgraphic.table<a class="headerlink" href="#module-classgraphic.table" title="Permalink to this heading">¶</a></h3>
+<p>Classification tables, in plotly and pandas format.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.class_imbalance_table">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">class_imbalance_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.class_imbalance_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class imbalance table.</p>
+<p>Given a <cite>target</cite> Series or array (eg. y, y_test, y_train), this visualize the balance/imbalance of
+classes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – usually, the target column for classification</p></li>
+<li><p><strong>y2</strong> (<em>series</em><em> or </em><em>array</em>) – optional. If provided an additional count column will allow for comparisaon</p></li>
+<li><p><strong>condition</strong> (<em>str</em>) – added to title. Something like ‘train’, ‘test’, ‘train and test’, ‘real and test’</p></li>
+<li><p><strong>sort</strong> (<em>bool</em>) – if True, data will be sorted by class count</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em>) – if True, sort ascending, else descending</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly table figure</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for go.Table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (, Dataframe if extended)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.classification_table">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">classification_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.classification_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classification report table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – usually, the target column for classification</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – predicted values</p></li>
+<li><p><strong>condition</strong> (<em>str</em>) – added to title. Something like ‘train’, ‘test’, ‘train and test’, ‘real and test’</p></li>
+<li><p><strong>sort</strong> (<em>bool</em>) – if True, data will be sorted by class count</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em>) – if True, sort ascending, else descending</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly table figure</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for go.Table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (, Dataframe if extended)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.confusion_matrix_table">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">confusion_matrix_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.confusion_matrix_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confusion matrix table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – scikit-learn model</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – predicted values</p></li>
+<li><p><strong>normalize</strong> (<em>str</em><em>)</em>) – one of None, ‘true’ (or synonym ‘real’), ‘pred’, ‘all’</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly table figure</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for go.Heatmap</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (table)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.describe">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataframe description table.</p>
+<p>This is equivalent to pandas <cite>df.describe()</cite>, with extra quantiles and non numerical feature
+stats, such as top and frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>dataframe</em><em> or </em><em>array</em>) – tabular data</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>transpose</strong> (<em>bool</em>) – columns become rows, rows become columns</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>go.Figure</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (table)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.prediction_table">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">prediction_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.prediction_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Real vs Prediction table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – scikit-learn model</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – predicted values</p></li>
+<li><p><strong>normalize</strong> (<em>str</em><em>)</em>) – one of None, ‘true’ (or synonym ‘real’), ‘pred’, ‘all’</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly table figure</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for go.Heatmap</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (table)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.table.table">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.table.</span></span><span class="sig-name descname"><span class="pre">table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">named_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.table.table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build generic plotly table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>dataframe</em>) – tabular data</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – title for the table. Can use &lt;b&gt;&lt;/b&gt;, &lt;sub&gt;&lt;/sub&gt;, &lt;br&gt; etc. Font size is defined by the template.</p></li>
+<li><p><strong>colorscale</strong> (<em>str</em><em> or </em><em>list</em>) – plotly named colorscale (<cite>blues</cite>, <cite>burgyl_r</cite>…) or 2d list mapping</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template name to use - uses heatmap <cite>colorscale</cite>, not table colors to provide alternating colors</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>go.Figure</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure (table)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-classgraphic.template">
+<span id="classgraphic-template"></span><h3>classgraphic.template<a class="headerlink" href="#module-classgraphic.template" title="Permalink to this heading">¶</a></h3>
+<p>template.py.</p>
+<p>Various templates in <cite>plotly</cite> format.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="classgraphic.template.DION_LOGO">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.template.</span></span><span class="sig-name descname"><span class="pre">DION_LOGO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">layout.Template({</span>&#160;&#160;&#160;&#160; <span class="pre">'layout':</span> <span class="pre">{'images':</span> <span class="pre">[{'layer':</span> <span class="pre">'below',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'name':</span> <span class="pre">'logo',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'opacity':</span> <span class="pre">0.1,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'sizex':</span> <span class="pre">0.7,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'sizey':</span> <span class="pre">0.7,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'sizing':</span> <span class="pre">'contain',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'source':</span> <span class="pre">'http://dionresearch.com/img/dion_research_logo_small_transparent.png',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'visible':</span> <span class="pre">True,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'x':</span> <span class="pre">0.5,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'xanchor':</span> <span class="pre">'center',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'xref':</span> <span class="pre">'paper',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'y':</span> <span class="pre">0.9,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'yanchor':</span> <span class="pre">'top',</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">'yref':</span> <span class="pre">'paper'}]}</span> <span class="pre">})</span></em><a class="headerlink" href="#classgraphic.template.DION_LOGO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logo template</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="classgraphic.template.DION_TEMPLATE">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.template.</span></span><span class="sig-name descname"><span class="pre">DION_TEMPLATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'data':</span> <span class="pre">{'heatmap':</span> <span class="pre">[{'colorbar':</span> <span class="pre">{'outlinewidth':</span> <span class="pre">0,</span> <span class="pre">'ticks':</span> <span class="pre">''},</span> <span class="pre">'colorscale':</span> <span class="pre">[[0.0,</span> <span class="pre">'rgb(247,251,255)'],</span> <span class="pre">[0.125,</span> <span class="pre">'rgb(222,235,247)'],</span> <span class="pre">[0.25,</span> <span class="pre">'rgb(198,219,239)'],</span> <span class="pre">[0.375,</span> <span class="pre">'rgb(158,202,225)'],</span> <span class="pre">[0.5,</span> <span class="pre">'rgb(107,174,214)'],</span> <span class="pre">[0.625,</span> <span class="pre">'rgb(66,146,198)'],</span> <span class="pre">[0.75,</span> <span class="pre">'rgb(33,113,181)'],</span> <span class="pre">[0.875,</span> <span class="pre">'rgb(8,81,156)'],</span> <span class="pre">[1.0,</span> <span class="pre">'rgb(8,48,107)']],</span> <span class="pre">'type':</span> <span class="pre">'heatmap'}],</span> <span class="pre">'heatmapgl':</span> <span class="pre">[{'colorbar':</span> <span class="pre">{'outlinewidth':</span> <span class="pre">0,</span> <span class="pre">'ticks':</span> <span class="pre">''},</span> <span class="pre">'colorscale':</span> <span class="pre">[[0.0,</span> <span class="pre">'rgb(247,251,255)'],</span> <span class="pre">[0.125,</span> <span class="pre">'rgb(222,235,247)'],</span> <span class="pre">[0.25,</span> <span class="pre">'rgb(198,219,239)'],</span> <span class="pre">[0.375,</span> <span class="pre">'rgb(158,202,225)'],</span> <span class="pre">[0.5,</span> <span class="pre">'rgb(107,174,214)'],</span> <span class="pre">[0.625,</span> <span class="pre">'rgb(66,146,198)'],</span> <span class="pre">[0.75,</span> <span class="pre">'rgb(33,113,181)'],</span> <span class="pre">[0.875,</span> <span class="pre">'rgb(8,81,156)'],</span> <span class="pre">[1.0,</span> <span class="pre">'rgb(8,48,107)']],</span> <span class="pre">'type':</span> <span class="pre">'heatmapgl'}],</span> <span class="pre">'histogram':</span> <span class="pre">[{'marker':</span> <span class="pre">{'colorbar':</span> <span class="pre">{'outlinewidth':</span> <span class="pre">0,</span> <span class="pre">'ticks':</span> <span class="pre">''}},</span> <span class="pre">'type':</span> <span class="pre">'histogram'}],</span> <span class="pre">'pie':</span> <span class="pre">[{'automargin':</span> <span class="pre">True,</span> <span class="pre">'type':</span> <span class="pre">'pie'}],</span> <span class="pre">'table':</span> <span class="pre">[{'cells':</span> <span class="pre">{'fill':</span> <span class="pre">{'color':</span> <span class="pre">'rgb(247,251,255)'},</span> <span class="pre">'line':</span> <span class="pre">{'color':</span> <span class="pre">'black'}},</span> <span class="pre">'header':</span> <span class="pre">{'fill':</span> <span class="pre">{'color':</span> <span class="pre">'rgb(158,202,225)'},</span> <span class="pre">'line':</span> <span class="pre">{'color':</span> <span class="pre">'black'}},</span> <span class="pre">'type':</span> <span class="pre">'table'}]},</span> <span class="pre">'layout':</span> <span class="pre">{'colorscale':</span> <span class="pre">{'sequential':</span> <span class="pre">[[0.0,</span> <span class="pre">'rgb(247,251,255)'],</span> <span class="pre">[0.125,</span> <span class="pre">'rgb(222,235,247)'],</span> <span class="pre">[0.25,</span> <span class="pre">'rgb(198,219,239)'],</span> <span class="pre">[0.375,</span> <span class="pre">'rgb(158,202,225)'],</span> <span class="pre">[0.5,</span> <span class="pre">'rgb(107,174,214)'],</span> <span class="pre">[0.625,</span> <span class="pre">'rgb(66,146,198)'],</span> <span class="pre">[0.75,</span> <span class="pre">'rgb(33,113,181)'],</span> <span class="pre">[0.875,</span> <span class="pre">'rgb(8,81,156)'],</span> <span class="pre">[1.0,</span> <span class="pre">'rgb(8,48,107)']]},</span> <span class="pre">'font':</span> <span class="pre">{'color':</span> <span class="pre">'rgb(8,48,107)'},</span> <span class="pre">'margin':</span> <span class="pre">{'b':</span> <span class="pre">40,</span> <span class="pre">'t':</span> <span class="pre">140},</span> <span class="pre">'title':</span> <span class="pre">{'x':</span> <span class="pre">0.05},</span> <span class="pre">'title_font_size':</span> <span class="pre">24}}</span></em><a class="headerlink" href="#classgraphic.template.DION_TEMPLATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dion Research blue gradient template</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="classgraphic.template.HIDE_LEGEND">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.template.</span></span><span class="sig-name descname"><span class="pre">HIDE_LEGEND</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">layout.Template({</span>&#160;&#160;&#160;&#160; <span class="pre">'layout':</span> <span class="pre">{'showlegend':</span> <span class="pre">False}</span> <span class="pre">})</span></em><a class="headerlink" href="#classgraphic.template.HIDE_LEGEND" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide Legend</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="classgraphic.template.seq_colorscale">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.template.</span></span><span class="sig-name descname"><span class="pre">seq_colorscale</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[0.0,</span> <span class="pre">'rgb(247,251,255)'],</span> <span class="pre">[0.125,</span> <span class="pre">'rgb(222,235,247)'],</span> <span class="pre">[0.25,</span> <span class="pre">'rgb(198,219,239)'],</span> <span class="pre">[0.375,</span> <span class="pre">'rgb(158,202,225)'],</span> <span class="pre">[0.5,</span> <span class="pre">'rgb(107,174,214)'],</span> <span class="pre">[0.625,</span> <span class="pre">'rgb(66,146,198)'],</span> <span class="pre">[0.75,</span> <span class="pre">'rgb(33,113,181)'],</span> <span class="pre">[0.875,</span> <span class="pre">'rgb(8,81,156)'],</span> <span class="pre">[1.0,</span> <span class="pre">'rgb(8,48,107)']]</span></em><a class="headerlink" href="#classgraphic.template.seq_colorscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>sequential colorscale</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.template.set_default_template">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.template.</span></span><span class="sig-name descname"><span class="pre">set_default_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dion'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.template.set_default_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>set_default_template.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>template</strong> (<em>str</em>) – template to use for all charts. Defaults to <cite>DEFAULT_TEMPLATE</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-classgraphic.viz">
+<span id="classgraphic-viz"></span><h3>classgraphic.viz<a class="headerlink" href="#module-classgraphic.viz" title="Permalink to this heading">¶</a></h3>
+<p>Classification visualizations, in plotly format and some also in pandas format.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.class_error">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">class_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.class_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classification error chart.</p>
+<p>Given a <cite>model</cite>, a <cite>target</cite> Series or array and a prediction Series or array, this visualize the
+prediction errors (for each real class, a breakdown of how many predicted by class). If normalize is False,
+it also show balance/imbalance of classes. If normalize is True, the bars all represent 100% of the class,
+and each segment, the percent of that predicted class for the real class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – predicted values</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em>) – if True, each segment is in percent and each true class is equal to 100%</p></li>
+<li><p><strong>reference</strong> (<em>bool</em>) – add a reference line to better compare classes</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.bar</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.class_imbalance">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">class_imbalance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.class_imbalance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class imbalance visualization.</p>
+<p>Given a <cite>target</cite> Series or array (eg. y, y_test, y_train), this visualize the balance/imbalance of
+classes. For binary classification, the default is a pie chart. For multiclass, it is a bar chart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – usually, the target column for classification</p></li>
+<li><p><strong>condition</strong> (<em>str</em>) – added to title. Something like ‘train’, ‘test’</p></li>
+<li><p><strong>sort</strong> (<em>bool</em>) – if True, data will be sorted by class count</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em>) – if True, sort ascending, else descending</p></li>
+<li><p><strong>reference</strong> (<em>bool</em>) – add a reference line to better compare classes</p></li>
+<li><p><strong>always_bar</strong> (<em>bool</em>) – it True, for binary classification use bar instead of pie chart</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.pie</cite> or <cite>px.bar</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.det">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">det</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.det" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot detection error tradeoff (DET) curve.</p>
+<dl class="simple">
+<dt>A visualization of error rates for binary classification, plotting the probit of false negative</dt><dd><p>rate vs. false positive rate. The interval -3, 3 from the probit is mapped to a percentage.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – predicted values</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.line</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.feature_importance">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">feature_importance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.feature_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Feature Importance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>transpose</strong> (<em>bool</em>) – columns become rows, rows become columns</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly figure</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.histogram</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.missing">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">missing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.missing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing data heatmap.</p>
+<p>Missing is defined here as NaN on numerical data types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>warning</strong> (<em>bool</em>) – Issue a warning if there are some missing values.</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.imshow</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.precision_recall">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">precision_recall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.precision_recall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Precision / Recall curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_probs</strong> (<em>series</em><em> or </em><em>array</em>) – predicted value probabilities</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.line</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.prediction_histogram">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">prediction_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">barmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'overlay'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.prediction_histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prediction Histogram chart.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_probs</strong> (<em>series</em><em> or </em><em>array</em>) – predicted value probabilities</p></li>
+<li><p><strong>nbins</strong> (<em>int</em>) – number of bins, default to 50</p></li>
+<li><p><strong>barmode</strong> (<em>str</em>) – one of [‘stack’, ‘group’, ‘overlay’, ‘relative’, None], defaults to overlay</p></li>
+<li><p><strong>reference</strong> (<em>bool</em>) – add a reference line to better compare classes</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – return a dataframe, besides the Plotly figure</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.histogram</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.roc">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">roc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ovr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.roc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot Receiver Operating Characteristic (ROC) curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_probs</strong> (<em>series</em><em> or </em><em>array</em>) – predicted value probabilities</p></li>
+<li><p><strong>ovo</strong> (<em>bool</em>) – if True, display One vs One macro average and weighted AUC (multiclass)</p></li>
+<li><p><strong>ovr</strong> (<em>bool</em>) – if True, display One vs Rest macro average and weighted AUC (multiclass)</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>go.Figure</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.threshold">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot True Positive Rate vs False Positive Rate for all Threshold.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn model</em>) – A scikit learn model (displayed in title)</p></li>
+<li><p><strong>y</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification</p></li>
+<li><p><strong>y_probs</strong> (<em>series</em><em> or </em><em>array</em>) – predicted value probabilities</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>go.Figure</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.view">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extended</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receiver Operating Characteristic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>DataFrame</em><em> or </em><em>serues</em><em> or </em><em>array</em>) – feature data to view</p></li>
+<li><p><strong>y_real</strong> (<em>series</em><em> or </em><em>array</em>) – the target column for classification matching X</p></li>
+<li><p><strong>y_pred</strong> (<em>series</em><em> or </em><em>array</em>) – optional, predicted value probabilities matching X</p></li>
+<li><p><strong>nobs</strong> (<em>int</em>) – number of observations to display</p></li>
+<li><p><strong>extended</strong> (<em>bool</em>) – if True, return dataframe</p></li>
+<li><p><strong>**kwargs</strong> – any Plotly kwargs for <cite>px.scatter</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2022, Dion Research LLC.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
