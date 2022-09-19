@@ -48,12 +48,12 @@ df = px.data.iris()
 # let's see what kind of data we have
 describe(df, transpose=True).show()
 ```
-![dataframe describe tale](docs/source/describe.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/describe.png)
 ```python
 # any missing?
 missing(df)
 ```
-![dataframe describe tale](docs/source/missing.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/missing.png)
 ```python
 # features
 X = df.drop(columns=["species", "species_id"])
@@ -64,7 +64,7 @@ y = df["species"]
 # Let's check our classes we will be training on and predicting
 class_imbalance_table(y, condition="all")
 ```
-![dataframe describe tale](docs/source/imbalance_table.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/imbalance_table.png)
 ```python
 # train / test split
 X_train, X_test, y_train, y_test = train_test_split(
@@ -75,7 +75,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # we could also pass to class_imbalance barmode="overlay" if we prefer
 class_imbalance(y_train, y_test, condition="train,test")
 ```
-![dataframe describe tale](docs/source/class_imbalance.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/class_imbalance.png)
 ```python
 # model
 model = LogisticRegression(max_iter=max_iter, random_state=random_state)
@@ -88,16 +88,16 @@ y_pred = model.predict(X_test)
 confusion_matrix_table(model, y_test, y_pred).show()
 classification_table(model, y_test, y_pred)
 ```
-![dataframe describe tale](docs/source/confusion.png)
-![dataframe describe tale](docs/source/classification_table.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/confusion.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/classification_table.png)
 ```python
 feature_importance(model, y, transpose=True)
 ```
-![dataframe describe tale](docs/source/feature.png)
+![dataframe describe tale](https://github.com/dionresearch/classgraphic/raw/main/docs/source/feature.png)
 
 This concludes the quickstart. There are many more visualizations and tables to explore.
 
-See the `notebooks` and `docs` folders on [github](https://github.org/dionresearch/classgraphic) for more information
+See the `notebooks` and `docs` folders on [github](https://github.com/dionresearch/classgraphic) for more information
 
 # Requirements
 
