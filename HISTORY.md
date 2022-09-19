@@ -1,5 +1,10 @@
 # History
 
+## 0.2.1 (2022-09-19)
+
+* added binary classification notebook example
+* fixed issue with non dataframe binary classification
+
 ## 0.2.0 (2022-09-18)
 
 The previous version was a first step to doing a public release. This
