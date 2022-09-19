@@ -1,4 +1,5 @@
 # classgraphic package
+Interactive classification diagnostic plots for scikit-learn.
 
 ![coin sorting machine](sorter_patent.jpg)
 
