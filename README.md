@@ -1,7 +1,7 @@
 # classgraphic
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![image](https://img.shields.io/pypi/v/hotelling.svg)](https://pypi.python.org/pypi/classgraphic) 
-![Dev](https://github.com/dionresearch/hotelling/actions/workflows/dev.yml/badge.svg)
+![Dev](https://github.com/dionresearch/classgraphic/actions/workflows/dev.yml/badge.svg)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dionresearch/classgraphic/HEAD?labpath=notebooks%2FClassGraphic_iris_demo.ipynb)
 
 Interactive classification diagnostic plots for scikit-learn.
