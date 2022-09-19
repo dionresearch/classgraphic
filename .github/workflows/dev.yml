@@ -11,7 +11,7 @@ jobs:
         fail-fast: false
         matrix:
             os: ["ubuntu-latest"]
-            python-version: ["3.9", "3.8"]
+            python-version: ["3.10", "3.9", "3.8"]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
@@ -55,7 +55,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_build/html
+          publish_dir: docs/build/html
 
       - name: Build sdist and bdist
         shell: bash -l {0}

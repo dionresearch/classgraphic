@@ -1,0 +1,12 @@
+name: classgraphic
+channels:
+  - default
+dependencies:
+  - python==3.9
+  - pip
+  - numpy
+  - pandas
+  - plotly>=5
+  - scikit-learn
+  - pip:
+    - git+https://github.com/dionresearch/classgraphic

@@ -99,6 +99,52 @@ This concludes the quickstart. There are many more visualizations and tables to 
 
 See the `notebooks` and `docs` folders on [github](https://github.org/dionresearch/classgraphic) for more information
 
+# Requirements
+
+- Python 3.8 or later
+- numpy
+- pandas
+- plotly>=5.0
+- scikit-learn
+
+# Install
+
+If you use conda, create an environment named `classgraphic`, then activate it:
+
+- in Linux:
+`source activate pilot`
+
+- In Windows:
+`conda activate pilot`
+
+If you use another environment management create and activate your environment
+using the normal steps.
+
+Then execute:
+
+```sh
+python setup.py install
+```
+
+or for installing in [development mode](https://pip.pypa.io/en/latest/cli/pip_install/#install-editable):
+
+
+```sh
+python -m pip install -e . --no-build-isolation
+```
+
+or alternatively
+
+```sh
+python setup.py develop
+```
+
+To install from github instead:
+```shell
+pip install git+https://github.com/dionresearch/classgraphic
+```
+
+
 # See also
 
 - [stemgraphic](https://github.com/dionresearch/stemgraphic) python package for visualization of data and text
