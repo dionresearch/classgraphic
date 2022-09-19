@@ -1,0 +1,9 @@
+name: classgraphic
+channels:
+  - default
+dependencies:
+  - pip
+  - numpy
+  - pandas
+  - plotly>=5
+  - scikit-learn

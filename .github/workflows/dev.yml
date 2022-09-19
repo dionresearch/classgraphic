@@ -1,0 +1,62 @@
+name: Classgraphic dev steps w/Miniconda
+on:
+  push:
+  pull_request:
+
+jobs:
+  testenv:
+    name: Conda env with Python ${{ matrix.python-version }}, ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+        fail-fast: false
+        matrix:
+            os: ["ubuntu-latest"]
+            python-version: ["3.9", "3.8", "3.7"]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          activate-environment: classgraphic
+          python-version: ${{ matrix.python-version }}
+          auto-activate-base: false
+      - shell: bash -l {0}
+        run: |
+          conda info
+
+      - shell: bash -l {0}
+        run: |
+          conda install pandas scipy flake8 sphinx sphinx-bootstrap-theme myst-parser pandoc -y -q
+          python -m pip install .
+
+      - shell: bash -l {0}
+        run: conda list
+
+      - name: Lint
+        shell: bash -l {0}
+        run: |
+            flake8 --count --show-source --max-line-length=127 --ignore=F401 --statistics classgraphic/
+            flake8 --count --exit-zero --max-complexity=20 --max-line-length=127 --ignore=F401 --statistics classgraphic/
+
+      - name: Code Documentation check
+        shell: bash -l {0}
+        run: |
+          pydocstyle classgraphic/
+
+      - name: API doc build
+        shell: bash -l {0}
+        run: |
+          cd docs
+          make html
+
+      - name: Push doc to Github Pages
+        if: matrix.python-version == '3.8'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_build/html
+
+      - name: Build sdist and bdist
+        shell: bash -l {0}
+        run: |
+          python setup.py sdist bdist_wheel

@@ -1,2 +1,105 @@
 # classgraphic
-Interactive classification diagnostic plots
+Interactive classification diagnostic plots for scikit-learn.
+
+![coin sorting machine](docs/source/sorter_patent.jpg)
+
+> We classify things for the purpose of doing something to them. Any classification which does not assist manipulation is worse than useless. - Randolph S. Bourne,
+  "Education and Living", The Century Co (April 1917)
+
+# Major features:
+
+Plotly based tables for:
+
+- class_imbalance_table 
+- classification_table
+- confusion_matrix_table
+- describe (dataframe stats)
+- prediction_table
+- table
+
+And the following charts:
+
+- class_imbalance 
+- class_error
+- det
+- feature_importance
+- missing
+- precision_recall
+- roc
+- prediction_histogram
+- threshold
+
+# Try it
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dionresearch/classgraphic/HEAD?labpath=notebooks%2FClassGraphic_iris_demo.ipynb)
+
+By trying it on binder, you'll see all the details and interactivity. The quickstart below
+has static images, but if you run these commands in a jupyter notebook, ipython or IDE you will
+be able to interact with them.
+
+# Quickstart
+
+```python
+from classgraphic.essential import *
+
+# loading the data
+df = px.data.iris()
+
+# let's see what kind of data we have
+describe(df, transpose=True).show()
+```
+![dataframe describe tale](docs/source/describe.png)
+```python
+# any missing?
+missing(df)
+```
+![dataframe describe tale](docs/source/missing.png)
+```python
+# features
+X = df.drop(columns=["species", "species_id"])
+
+#target
+y = df["species"]
+
+# Let's check our classes we will be training on and predicting
+class_imbalance_table(y, condition="all")
+```
+![dataframe describe tale](docs/source/imbalance_table.png)
+```python
+# train / test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.5, random_state=random_state
+)
+
+# we want to see total count for each, default for bars is to be stacked, so that works
+# we could also pass to class_imbalance barmode="overlay" if we prefer
+class_imbalance(y_train, y_test, condition="train,test")
+```
+![dataframe describe tale](docs/source/class_imbalance.png)
+```python
+# model
+model = LogisticRegression(max_iter=max_iter, random_state=random_state)
+model.fit(X_train, y_train)
+
+# predictions
+y_score = model.predict_proba(X_test)
+y_pred = model.predict(X_test)
+
+confusion_matrix_table(model, y_test, y_pred).show()
+classification_table(model, y_test, y_pred)
+```
+![dataframe describe tale](docs/source/confusion.png)
+![dataframe describe tale](docs/source/classification_table.png)
+```python
+feature_importance(model, y, transpose=True)
+```
+![dataframe describe tale](docs/source/feature.png)
+
+This concludes the quickstart. There are many more visualizations and tables to explore.
+
+See the `notebooks` and `docs` folders on [github](https://github.org/dionresearch/classgraphic) for more information
+
+# See also
+
+- [stemgraphic](https://github.com/dionresearch/stemgraphic) python package for visualization of data and text
+- [Hotelling](https://github.com/dionresearch/hotelling) one and two sample Hotelling T2 tests, T2 and f statistics and univariate and multivariate control charts and anomaly detection
