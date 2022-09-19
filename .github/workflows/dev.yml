@@ -11,7 +11,7 @@ jobs:
         fail-fast: false
         matrix:
             os: ["ubuntu-latest"]
-            python-version: ["3.9", "3.8", "3.7"]
+            python-version: ["3.9", "3.8"]
     steps:
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
@@ -27,7 +27,7 @@ jobs:
       - shell: bash -l {0}
         run: |
           conda install pandas scipy flake8 sphinx pandoc -y -q
-          pip install sphinx-bootstrap-theme myst-parser
+          pip install sphinx-bootstrap-theme myst-parser pydocstyle
           python -m pip install .
 
       - shell: bash -l {0}
@@ -51,7 +51,7 @@ jobs:
           make html
 
       - name: Push doc to Github Pages
-        if: matrix.python-version == '3.8'
+        if: matrix.python-version == '3.9'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
