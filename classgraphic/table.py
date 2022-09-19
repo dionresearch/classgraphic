@@ -38,7 +38,7 @@ def class_imbalance_table(
 
     Args:
         y (series or array): usually, the target column for classification
-        y2 (series or array): optional. If provided an additional count column will allow for comparisaon
+        y2 (series or array): optional. If provided an additional count column will allow for comparison
         condition (str): added to title. Something like 'train', 'test', 'train and test', 'real and test'
         sort (bool): if True, data will be sorted by class count
         ascending (bool): if True, sort ascending, else descending
@@ -156,7 +156,7 @@ def confusion_matrix_table(
         **kwargs: any Plotly kwargs for go.Heatmap
 
     Returns:
-        Figure (table)
+        Figure (table)(, Dataframe if extended)
     """
     # figure out what colorscale to use
     colorscale_list = heatmap_colorscale(colorscale, template)
