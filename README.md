@@ -6,7 +6,7 @@
 
 Interactive classification diagnostic plots for scikit-learn.
 
-![coin sorting machine](docs/source/sorter_patent.jpg)
+![coin sorting machine](https://github.com/dionresearch/classgraphic/raw/main/docs/source/sorter_patent.jpg)
 
 > We classify things for the purpose of doing something to them. Any classification which does not assist manipulation is worse than useless. - Randolph S. Bourne,
   "Education and Living", The Century Co (April 1917)

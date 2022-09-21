@@ -1,5 +1,11 @@
 # History
 
+## 0.2.1 (2022-09-20)
+
+* fixed image not showing on pypi
+* fixed feature importance error
+* warning = False didn't prevent warning to show
+
 ## 0.2.1 (2022-09-19)
 
 * added binary classification notebook example

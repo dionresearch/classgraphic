@@ -265,7 +265,7 @@ def feature_importance(model, y, transpose=False, extended=False, **kwargs):
     except AttributeError:
         importance = model.coef_
     df = pd.DataFrame(importance)
-    if features:
+    if features is not None:
         df.columns = features
     try:
         df.index = labels
@@ -323,7 +323,8 @@ def missing(X, warning=True, **kwargs):
             labels=dict(color="Missing Value (255 = True)"),
             **kwargs,
         )
-        warnings.warn("The dataset has missing (None or NaN) values.")
+        if warning:
+            warnings.warn("The dataset has missing (None or NaN) values.")
     else:
         fig = px.imshow(
             data,

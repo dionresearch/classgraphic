@@ -4,6 +4,6 @@
 
 __author__ = """Francois Dion"""
 __email__ = "fdion@dionresearch.com"
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 from classgraphic.template import pio  # noqa
