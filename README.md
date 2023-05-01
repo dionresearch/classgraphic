@@ -34,6 +34,10 @@ And the following charts:
 - prediction_histogram
 - threshold
 
+For clustering:
+- Delauney triangulations
+- Voronoi tessalations
+
 # Try it
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dionresearch/classgraphic/HEAD?labpath=notebooks%2FClassGraphic_iris_demo.ipynb)

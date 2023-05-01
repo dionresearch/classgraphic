@@ -696,9 +696,101 @@ def view(X, y_real, y_pred=None, nobs=10, extended=False, **kwargs):
     return fig
 
 
+def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, plot_delauney=False, **kwargs):
+    """Plot a 2D voronoi diagram.
+
+    Args:
+        centroid_source: either a fitted clustering alrorithm with cluster_centers, or cluster center coordinates
+        data: optional, original data (X) used for calculating the clusters
+        labels: labels (y) for the clusters
+        plot_voronoi: if False, will not plot boundaries, aka Voronoi tessalation
+        plot_delauney: if True, plots Delauney triangulation
+        **kwargs:
+
+    Returns:
+
+    """
+    try:
+        centers = centroid_source.cluster_centers
+    except AttributeError:
+        centers = centroid_source
+    voronoi = sp.spatial.Voronoi(centers)
+    if plot_delauney:
+        triangles = sp.spatial.Delaunay(centers)
+
+    voronoi_points = pd.DataFrame(voronoi.points)
+    voronoi_points["type"] = "centroids"
+    voronoi_vertices = pd.DataFrame(voronoi.vertices)
+    voronoi_vertices["type"] = "vertices"
+    if data is not None:
+        data_points = pd.DataFrame(X)
+        data_points["type"] = "data"
+        voronoi_df = pd.concat([data_points, voronoi_vertices, voronoi_points], axis=0)
+    else:
+        voronoi_df = pd.concat([voronoi_vertices, voronoi_points], axis=0)
+
+    center = voronoi.points.mean(axis=0)
+    ptp_bound = voronoi.points.ptp(axis=0)
+
+    # Voronoi
+    finite_segments = []
+    infinite_segments = []
+    for pointidx, simplex in zip(voronoi.ridge_points, voronoi.ridge_vertices):
+        simplex = np.asarray(simplex)
+        if np.all(simplex >= 0):
+            finite_segments.append(voronoi.vertices[simplex])
+        else:
+            i = simplex[simplex >= 0][0]  # finite end Voronoi vertex
+
+            t = voronoi.points[pointidx[1]] - voronoi.points[pointidx[0]]  # tangent
+            t /= np.linalg.norm(t)
+            n = np.array([-t[1], t[0]])  # normal
+
+            midpoint = voronoi.points[pointidx].mean(axis=0)
+            direction = np.sign(np.dot(midpoint - center, n)) * n
+            if (voronoi.furthest_site):
+                direction = -direction
+            far_point = voronoi.vertices[i] + direction * ptp_bound.max()
+            infinite_segments.append([voronoi.vertices[i], far_point])
+
+    if data is not None and labels is not None:
+        fig = px.scatter(data_points, x=0, y=1, color="type", hover_name=labels)
+        fig.add_trace(go.Scatter(x=voronoi_vertices[0], y=voronoi_vertices[1], mode="markers", name="vertices"))
+        fig.add_trace(go.Scatter(x=voronoi_points[0], y=voronoi_points[1], mode="markers", marker_symbol="x", name="centroids"))
+    else:
+        fig = px.scatter(voronoi_df, x=0, y=1, color="type")
+
+    for plot in fig.data:
+        if plot["name"] == "vertices":
+            vertices_color = plot.marker.color
+        elif plot["name"] == "centroids":
+            centroids_color = plot.marker.color
+
+    if plot_delauney:
+        first = True
+        for triangleidx in triangles.simplices:
+            x, y = zip(triangles.points[triangleidx].T)
+            fig.add_trace(
+                go.Scatter(x=x[0], y=y[0], mode="lines+markers", line_color="red", marker_color=centroids_color, name="delauney",
+                           legendgroup="delauney", showlegend=first))
+            first = False
+
+    if plot_voronoi:
+        first = True
+        for line in finite_segments:
+            x, y = zip(*line)
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color, name="boundary", legendgroup="boundary", showlegend=first))
+            first = False
+        for line in infinite_segments:
+            x, y = zip(*line)
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color, name="boundary", legendgroup="boundary", showlegend=first))
+    return fig
+
+
 if __name__ == "__main__":
+    from sklearn.cluster import KMeans
     from sklearn.linear_model import LogisticRegression
-    from sklearn.datasets import make_classification
+    from sklearn.datasets import make_classification, make_blobs
     from sklearn.model_selection import train_test_split
     from sklearn.svm import SVC
 
@@ -707,7 +799,7 @@ if __name__ == "__main__":
     random_state = 0
     np.random.seed(random_state)
 
-    binary = True
+    binary = False
     if binary:
         # Data
         X, y = make_classification(n_samples=500, random_state=random_state)
@@ -782,68 +874,79 @@ if __name__ == "__main__":
         fig = missing(X)
         fig.show()
 
-    df = px.data.iris()
-    X = df.drop(columns=["species", "species_id"])
-    y = df["species"]
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.6, random_state=random_state
-    )
+    multivar = False
+    if multivar:
+        df = px.data.iris()
+        X = df.drop(columns=["species", "species_id"])
+        y = df["species"]
+        X_train, X_test, y_train, y_test = train_test_split(
+            X, y, test_size=0.6, random_state=random_state
+        )
 
-    # Class split
-    fig = class_imbalance(y_train, y_test, condition="train,test", sort=True)
+        # Class split
+        fig = class_imbalance(y_train, y_test, condition="train,test", sort=True)
+        fig.show()
+
+        fig = class_imbalance(y_train, condition="train", sort=True)
+        fig.show()
+
+        # Fit the model
+        lr_model = LogisticRegression(max_iter=200)
+        lr_model.fit(X_train, y_train)
+        y_probs = lr_model.predict_proba(X_test)
+        y_pred = lr_model.predict(X_test)
+
+        # class error
+        fig = class_error(lr_model, y_test, y_pred)
+        fig.show()
+
+        # confusion matrix
+        tab = confusion_matrix_table(lr_model, y_test, y_pred)
+        tab.show()
+
+        # feature importance
+        fig = feature_importance(lr_model, y)
+        fig.show()
+
+        fig = feature_importance(lr_model, y, transpose=True)
+        fig.show()
+
+        # view
+        fig = view(X_test, y_test, y_pred)
+        fig.show()
+
+        # prediction histogram
+        fig, ph_df = prediction_histogram(
+            lr_model, y_test, y_probs, extended=True, template="seaborn"
+        )
+        fig.show()
+        ph_df.to_csv("results.csv")
+
+        print(y_probs.shape)
+        # precision recall curve
+        fig = precision_recall(lr_model, y_test, y_probs)
+        fig.show()
+
+        # multiclass roc
+        fig = roc(lr_model, y_test, y_probs)
+        fig.show()
+
+        # threshold
+        fig = threshold(lr_model, y_test, y_probs)
+        fig.show()
+
+        # add missing values
+        X = X.mask(np.random.random(X.shape) < 0.05)
+
+        # Missing values
+        fig = missing(X, template="plotly_white")
+        fig.show()
+
+    # Clustering
+    X, y, centers = make_blobs(n_samples=300, n_features=2, centers=9, return_centers=True)
+    fig = voronoi_diagram(centers, X, y)
     fig.show()
 
-    fig = class_imbalance(y_train, condition="train", sort=True)
-    fig.show()
-
-    # Fit the model
-    lr_model = LogisticRegression(max_iter=200)
-    lr_model.fit(X_train, y_train)
-    y_probs = lr_model.predict_proba(X_test)
-    y_pred = lr_model.predict(X_test)
-
-    # class error
-    fig = class_error(lr_model, y_test, y_pred)
-    fig.show()
-
-    # confusion matrix
-    tab = confusion_matrix_table(lr_model, y_test, y_pred)
-    tab.show()
-
-    # feature importance
-    fig = feature_importance(lr_model, y)
-    fig.show()
-
-    fig = feature_importance(lr_model, y, transpose=True)
-    fig.show()
-
-    # view
-    fig = view(X_test, y_test, y_pred)
-    fig.show()
-
-    # prediction histogram
-    fig, ph_df = prediction_histogram(
-        lr_model, y_test, y_probs, extended=True, template="seaborn"
-    )
-    fig.show()
-    ph_df.to_csv("results.csv")
-
-    print(y_probs.shape)
-    # precision recall curve
-    fig = precision_recall(lr_model, y_test, y_probs)
-    fig.show()
-
-    # multiclass roc
-    fig = roc(lr_model, y_test, y_probs)
-    fig.show()
-
-    # threshold
-    fig = threshold(lr_model, y_test, y_probs)
-    fig.show()
-
-    # add missing values
-    X = X.mask(np.random.random(X.shape) < 0.05)
-
-    # Missing values
-    fig = missing(X, template="plotly_white")
+    _, _, centers = make_blobs(n_samples=144, n_features=2, centers=12, return_centers=True)
+    fig = voronoi_diagram(centers, plot_voronoi=False, plot_delauney=True)
     fig.show()
