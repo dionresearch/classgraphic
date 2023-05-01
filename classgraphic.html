@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>classgraphic package &#8212; ClassGraphic 0.2.2 documentation</title>
+    <title>classgraphic package &#8212; ClassGraphic 0.3.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -681,6 +681,27 @@ classes. For binary classification, the default is a pie chart. For multiclass, 
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="classgraphic.viz.voronoi_diagram">
+<span class="sig-prename descclassname"><span class="pre">classgraphic.viz.</span></span><span class="sig-name descname"><span class="pre">voronoi_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">centroid_source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_voronoi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_delauney</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classgraphic.viz.voronoi_diagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a 2D voronoi diagram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>centroid_source</strong> – either a fitted clustering alrorithm with cluster_centers, or cluster center coordinates</p></li>
+<li><p><strong>data</strong> – optional, original data (X) used for calculating the clusters</p></li>
+<li><p><strong>labels</strong> – labels (y) for the clusters</p></li>
+<li><p><strong>plot_voronoi</strong> – if False, will not plot boundaries, aka Voronoi tessalation</p></li>
+<li><p><strong>plot_delauney</strong> – if True, plots Delauney triangulation</p></li>
+<li><p><strong>**kwargs</strong> – for now, passed to initial scatter plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly figure</p>
 </dd>
 </dl>
 </dd></dl>
