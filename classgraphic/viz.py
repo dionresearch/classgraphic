@@ -705,10 +705,10 @@ def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, 
         labels: labels (y) for the clusters
         plot_voronoi: if False, will not plot boundaries, aka Voronoi tessalation
         plot_delauney: if True, plots Delauney triangulation
-        **kwargs:
+        **kwargs: for now, passed to initial scatter plot
 
     Returns:
-
+        Plotly figure
     """
     try:
         centers = centroid_source.cluster_centers
@@ -754,7 +754,7 @@ def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, 
             infinite_segments.append([voronoi.vertices[i], far_point])
 
     if data is not None and labels is not None:
-        fig = px.scatter(data_points, x=0, y=1, color="type", hover_name=labels)
+        fig = px.scatter(data_points, x=0, y=1, color="type", hover_name=labels, **kwargs)
         fig.add_trace(go.Scatter(x=voronoi_vertices[0], y=voronoi_vertices[1], mode="markers", name="vertices"))
         fig.add_trace(go.Scatter(x=voronoi_points[0], y=voronoi_points[1], mode="markers", marker_symbol="x",
                                  name="centroids"))
