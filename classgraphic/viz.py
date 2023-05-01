@@ -756,7 +756,8 @@ def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, 
     if data is not None and labels is not None:
         fig = px.scatter(data_points, x=0, y=1, color="type", hover_name=labels)
         fig.add_trace(go.Scatter(x=voronoi_vertices[0], y=voronoi_vertices[1], mode="markers", name="vertices"))
-        fig.add_trace(go.Scatter(x=voronoi_points[0], y=voronoi_points[1], mode="markers", marker_symbol="x", name="centroids"))
+        fig.add_trace(go.Scatter(x=voronoi_points[0], y=voronoi_points[1], mode="markers", marker_symbol="x",
+                                 name="centroids"))
     else:
         fig = px.scatter(voronoi_df, x=0, y=1, color="type")
 
@@ -771,19 +772,21 @@ def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, 
         for triangleidx in triangles.simplices:
             x, y = zip(triangles.points[triangleidx].T)
             fig.add_trace(
-                go.Scatter(x=x[0], y=y[0], mode="lines+markers", line_color="red", marker_color=centroids_color, name="delauney",
-                           legendgroup="delauney", showlegend=first))
+                go.Scatter(x=x[0], y=y[0], mode="lines+markers", line_color="red", marker_color=centroids_color,
+                           name="delauney", legendgroup="delauney", showlegend=first))
             first = False
 
     if plot_voronoi:
         first = True
         for line in finite_segments:
             x, y = zip(*line)
-            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color, name="boundary", legendgroup="boundary", showlegend=first))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color,
+                                     name="boundary", legendgroup="boundary", showlegend=first))
             first = False
         for line in infinite_segments:
             x, y = zip(*line)
-            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color, name="boundary", legendgroup="boundary", showlegend=first))
+            fig.add_trace(go.Scatter(x=x, y=y, mode="lines+markers", line_color="black", marker_color=vertices_color,
+                                     name="boundary", legendgroup="boundary", showlegend=first))
     return fig
 
 
