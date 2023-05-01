@@ -735,6 +735,8 @@ def voronoi_diagram(centroid_source, data=None, labels=None, plot_voronoi=True, 
     # Voronoi
     finite_segments = []
     infinite_segments = []
+    # This loop is borrowed from scipy.spatial.voronoi_plot_2d, which is matplotlib
+    # oriented. This is further massaged to use plotly.
     for pointidx, simplex in zip(voronoi.ridge_points, voronoi.ridge_vertices):
         simplex = np.asarray(simplex)
         if np.all(simplex >= 0):
