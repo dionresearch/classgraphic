@@ -1,5 +1,11 @@
 # History
 
+## 0.3.0 (2023-05-01)
+
+* added 2D clustering visualization
+* defaults to Voronoi tessalation
+* optional Delauney triangulation
+
 ## 0.2.1 (2022-09-20)
 
 * fixed image not showing on pypi
