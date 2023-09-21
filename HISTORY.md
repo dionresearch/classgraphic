@@ -1,5 +1,9 @@
 # History
 
+
+## 0.3.1 (2023-09-20)
+* bugfix for describe with pandas 2.x
+
 ## 0.3.0 (2023-05-01)
 
 * added 2D clustering visualization
