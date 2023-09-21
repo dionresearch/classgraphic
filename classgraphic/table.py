@@ -264,7 +264,10 @@ def describe(X, colorscale=None, template=None, transpose=False, **kwargs):
     else:
         df = pd.DataFrame(X)
 
-    stats = df.describe(percentiles=[.01, .25, .5, .75, .99], include="all", datetime_is_numeric=True).T
+    try:
+        stats = df.describe(percentiles=[.01, .25, .5, .75, .99], include="all", datetime_is_numeric=True).T
+    except TypeError: # pandas 2.x
+        stats = df.describe(percentiles=[.01, .25, .5, .75, .99], include="all").T
     stats.rename(
         columns={"25%": "25% (Q1)", "50%": "50% (median)", "75%": "75% (Q3)"},
         inplace=True
