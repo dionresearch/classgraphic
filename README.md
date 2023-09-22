@@ -116,6 +116,7 @@ See the `notebooks` and `docs` folders on [github](https://github.com/dionresear
 - pandas
 - plotly>=5.0
 - scikit-learn
+- nbformat
 
 # Install
 

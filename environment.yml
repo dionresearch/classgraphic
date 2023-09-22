@@ -7,3 +7,4 @@ dependencies:
   - pandas
   - plotly>=5
   - scikit-learn
+  - nbformat

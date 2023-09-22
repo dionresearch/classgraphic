@@ -8,7 +8,7 @@ with open("README.md") as readme_file:
 with open("HISTORY.md") as history_file:
     history = history_file.read()
 
-requirements = ["plotly>=5.0", "scikit-learn", "pandas", "numpy"]
+requirements = ["plotly>=5.0", "scikit-learn", "pandas", "numpy", "nbformat"]
 
 setup_requirements = ["pytest-runner"]
 
@@ -42,6 +42,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/dionresearch/classgraphic",
-    version="0.3.0",
+    version="0.3.1",
     zip_safe=False,
 )
